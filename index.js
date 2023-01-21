@@ -2,20 +2,21 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 1000;
 require('dotenv').config()
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
+const userApi=require('./routes/userApi')
 
 app.use(express.json())
 
-45;
-
+// mongodb connection
 mongoose.set("strictQuery", false);
 mongoose.connect(process.env.DB_URL)
     .then(() => {
-    app.listen(port, () => console.log("listening on port ", port));
+        console.log('db connecte');
     })
     .catch(err => console.log(err))
 
-app.get('/', (req,res) => {
-    res.send('pro builder running')
-})
+    // routes
+    app.use('/user',userApi)
 
+app.listen(port, () => console.log("listening on port ", port));

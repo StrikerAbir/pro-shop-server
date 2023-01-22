@@ -5,7 +5,8 @@ require('dotenv').config()
 const mongoose = require('mongoose');
 const cors = require("cors");
 
-const userApi=require('./routes/userApi')
+const userApi = require('./routes/userApi')
+const sliderApi=require('./routes/sliderApi')
 
 app.use(cors());
 app.use(express.json())
@@ -20,5 +21,6 @@ mongoose.connect(process.env.DB_URL,{dbName:"pro-shop"})
 
     // routes
     app.use('/user',userApi)
-
+app.use('/slider', sliderApi)
+    
 app.listen(port, () => console.log("listening on port ", port));

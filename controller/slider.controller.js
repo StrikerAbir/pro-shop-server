@@ -9,7 +9,19 @@ const slider = {
     } catch (error) {
       res.status(500).send(error.message);
     }
-  },
+    },
+    addSlider: async (req, res) => {
+        try {
+            const data = req.body;
+            // console.log(data);
+            const slider = new Slider(data);
+            const result = await slider.save();
+            // console.log(result);
+            res.send(result);
+        } catch (error) {
+          res.status(500).send(error.message);
+        }
+    }
 
 };
 

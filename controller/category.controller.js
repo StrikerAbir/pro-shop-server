@@ -4,7 +4,7 @@ const category = {
     getCategory: async(req, res)=>{
         try {
             const data = await Category.find()
-            console.log(data);
+            // console.log(data);
             res.send(data)
         } catch (error) {
              res.status(500).send(error.message);
@@ -15,7 +15,7 @@ const category = {
           const data = req.body
           const cat = new Category(data);
           const result = await cat.save();
-            console.log(data);
+            // console.log(data);
             
           res.send("okkk");
         } catch (error) {

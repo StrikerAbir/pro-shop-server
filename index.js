@@ -27,7 +27,7 @@ app.use('/slider', sliderApi)
 app.use('/categories',categoriesApi)
 app.use('/products',productApi)
 
-app.get('/', (res, req) => {
+app.get('/', (req,res) => {
     res.send('pro-shop running')
 })
 

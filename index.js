@@ -26,5 +26,9 @@ mongoose.connect(process.env.DB_URL,{dbName:"pro-shop"})
 app.use('/slider', sliderApi)
 app.use('/categories',categoriesApi)
 app.use('/products',productApi)
-    
+
+app.get('/', (res, req) => {
+    res.send('pro-shop running')
+})
+
 app.listen(port, () => console.log("listening on port ", port));
